@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>      
+        
+            //Ejercicio 1
+            // Dado un array, escribe una función que cambie todos los números positivos en él, por el string “big”.
+             function big(x){
+                for (var i=0; i< x.length; i++){
+                  if (x[i] >0){
+                      x[i]="Big";
+                  }
+                }
+                return x;
+            }
+            a = [-1,3,5,-5];
+            console.log(big (a)); 
+            
+            
+            //Ejercicio 2
+            //Crea una función que tome un array de números. La función debería imprimir (print) el valor menor del array, y devolver (return) el mayor. 
+            function imprime(x){
+                var max=[0];
+                var min=[0];
+                for (i=1; i<x.length; i++){
+                    if (max < [i]){
+                        max= x[i];
+                    }
+                    if (min > x[i]){
+                        min=x[i];
+                    }
+                }
+                console.log (min);
+                return (max);
+            }
+            a=[-1,4,5,-4,10];
+            imprime (a);
+            
+           
+            
+            
+            //Ejercicio 3
+            // Crea una función para un array de números. La función debería imprimir (print) el penúltimo valor y devolver (return) el primer valor impar.
+            function devuelve (x){
+                console.log (x [x.length-2]);
+                for (i=0; i<x.length; i++){
+                    if (x[i]%2 !==0){
+                        return x[i];
+                    }
+                }
+            }
+            a=[2,4,3,-10,7]
+            console.log (devuelve(a));
+            
+            //Ejercicio 4
+            //Dado un array (similar a decir ‘tomado un array’), crea una función que devuelva un nuevo array donde cada valor se duplique.
+            function duplicar (x){
+                y=[];
+                for (i=0; i<x.length; i++){
+                    y.push (x[i]*2); 
+                }
+                return y;
+            }
+            a=[1,2,3]
+            console.log (duplicar (a));
+            
+            
+            //Ejercicio 5
+            //Dado un array de números, crea una función para reemplazar el último valor con el número de valores positivos encontrados en el array. Ejemplo, contarPositivos([-1,1,1,1]) cambia el array original y devuelve [-1,1,1,3].
+            
+            function positivo (x){
+                var con=0;
+                 for (i=0; i<x.length; i++){
+                     if (x[i]>0) {
+                         con = con+1;
+                     }
+                 }
+                x[x.length-1] = con;
+                return x;
+            }
+            a=[-1,1,1,1];
+            console.log (positivo(a));
+            
+           
+            //Ejercicio 6
+            //Crea una función que acepte un array. Cada vez que ese array tenga 3 valores impares seguidos, imprime (print) “¡Qué imparcial!”, y cada vez que tenga 3 pares seguidos, imprime (print) “¡Es para bien!”.
+             function imprimetxt(x){
+                var par=0;
+                var impar=0;
+                for (i=0; i<x.length; i++){
+                    if (x[i]%2==0){
+                       par= par+1;
+                       impar=0;
+                        if (par==3) {
+                            console.log ("¡Es para bien!");
+                            par=0;
+                        }
+                    }
+                    else {
+                        par=0;
+                        impar= impar+1;
+                        if (impar==3){
+                            console.log ("¡Qué imparcial!");
+                            impar=0;
+                        }
+                       
+                    }
+                }
+             }
+            a=[3,5,7,8,10,12];
+            imprimetxt (a);
+            
+             //Ejercicio 7
+            // Dado un array de números arr, agrega 1 a cualquier otro elemento, específicamente a aquellos cuyo índice es impar (arr[1], arr[3], arr[5], etc). Luego, console.log cada valor del array y devuelve arr. 
+            function segundos(arr){
+			  for(i=0; i<arr.length; i++){
+			    if(i%2!==0){
+			      arr[i]=arr[i]+1;
+			    }
+			    console.log(arr[i]);
+			  }
+			  return arr;
+			}
+			a=[2,5,1,10,3,6,7];
+			segundos(a);
+            
+           
+             //Ejercicio 8
+            //Pasado un array (similar a decir ‘tomado un array’ o ‘dado un array’) que contiene strings, reemplaza cada string con un número de acuerdo cantidad de letras (longitud) del string anterior. Por ejemplo, longitudesPrevias([“programar”,“dojo”, “genial”]) debería devolver [“programar”,9, 4].
+            
+			function longitudesPrevias(x){
+			  for(i=x.length-1; i>0; i--){
+			    x[i]=x[i-1].length;
+			    }
+			  return x;
+			}
+			a=["programar","dojo","genial"];
+			console.log(longitudesPrevias(a));
+
+			
+		// Algoritmo 9: Agrega Siete
+            // Construye una función que acepte un array. Devuelve un nuevo array con todos los valores del original, pero sumando 7 a cada uno. No alteres el array original. Por ejemplo, agregaSiete([1,2,3) debería devolver [8,9,10] en un nuevo array.  
+
+			function agregaSiete(x){
+			  y=[];
+			  for(i=0; i<x.length; i++){
+			    y.push(x[i]+7);
+			  }
+			  return y;
+			}
+			a=[1,2,3];
+			console.log(agregaSiete(a));
+
+		// Algoritmo 10: Array Inverso
+            // Dado un array, escribe una función que invierte sus valores en el lugar. Ejemplo: invertir([3,1,6,4,2)) devuelve el mismo array pero con sus valores al revés, es decir [2,4,6,1,3]. Haz esto sin crear un array temporal vacío. (Pista: necesitarás intercambiar (swap) valores).
+
+
+
+			function reverso(x){
+			  var aux=0;
+			  for(i=0; i<(x.length-1)/2; i++){
+			    aux=x[i];
+			    x[i]=x[x.length-1-i];
+			    x[x.length-1-i]=aux;
+			    }
+			  return x;
+			}
+			a=[1,2,3,4,5,6];
+			console.log(reverso(a));
+
+		
+
+		// Algoritmo 11: Perspectiva: Negativa
+            //Dado un array crear y devuelve uno nuevo que contenga todos los valores del array original, pero negativos (no simplemente multiplicando por -1). Dado [1,-3,5], devuelve [-1,-3,-5].
+
+			function negativo(x){
+			  for(i=0; i<x.length;i++){
+			    if(x[i]>0){
+			      x[i]=-x[i];
+			    }
+			  }
+			  return x;
+			}
+			a=[1,-3,5];
+			console.log(negativo(a));
+
+		// Algoritmo 12: Siempre hambriento
+            //Crea una función que acepte un array e imprima (print) “yummy” cada vez que alguno de los valores sea “comida”. Si ningún valor es “comida”, entonces imprime “tengo hambre” una vez. 
+
+			function hambriento(x){
+			  var cont=0;
+			  for(i=0; i<x.length;i++){
+			    if(x[i]=="comida" || x[i]=="Comida"){
+			      console.log("Yummy");
+			      cont=cont+1;
+			    }
+			  }
+			  if(cont===0){
+			    console.log("Tengo hambre")
+			  }
+			}
+			a=[1,"dojo","comida","coding",4,"Comida"];
+			hambriento(a);
+
+
+		// Algoritmo 13: Cambiar hacia el centro
+            // Dado un array, cambia el primer y último valor, el tercero con el ante penútimo, etc. Ejemplo: cambiaHaciaElCentro([true, 42, “Ada”, 2, “pizza”]) cambia el array a [“pizza¨, 42, “Ada”, true]. cambiaHaciaElCentro([1,2,3,4,5,6]) cambia el array a [6,2,4,3,5,1]. No es necesario devolver (return) el array esta vez. 
+
+			function reverso(x){
+			  var aux=0;
+			  for(i=0; i<(x.length-1)/2; i+=2){
+			    aux=x[i];
+			    x[i]=x[x.length-1-i];
+			    x[x.length-1-i]=aux;
+			    }
+			  return x;
+			}
+			a=[1,2,3,4,5,6];
+			console.log(reverso(a));
+
+		// Algoritmo 14: Escala el Array
+            //Dado un array arr y un número num, multiplica todos los valores en el array arr por el número num, y devuelve el array arr modificado. Por ejemplo, escalaArray([1,2,3], 3] debería devolver [3,6,9].
+
+			function escalaArray(x,y){
+			  for(i=0; i<x.length; i++){
+			    x[i]=x[i]*y;
+			  }
+			  return x;
+			}
+			a=[1,2,3];
+			console.log(escalaArray(a,3));
+
+            
+            
+            
+            
+        </script>
+        
+      
+    
+        
+    </body>
+</html>
